@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { color } from "./src/styles/palette";
 import Welcome from "./src/screens/Welcome";
+import Main from "./src/screens/Main";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -12,6 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+      initialRouteName="main"
         screenOptions={{
           statusBarStyle: "light",
         }}
@@ -27,6 +29,19 @@ export default function App() {
             },
           }}
           component={Welcome}
+        />
+        <Stack.Screen
+          name="main"
+          options={{
+            title: "EconomEasy",
+            statusBarColor: color.primary[500],
+            headerTintColor: color.primary[100],
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: color.primary[500],
+            },
+          }}
+          component={Main}
         />
       </Stack.Navigator>
     </NavigationContainer>
