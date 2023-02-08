@@ -16,10 +16,6 @@ const Main = () => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
-          
-          tabBarIconStyle: {
-            color: color.primary,
-          }
         }}
         initialRouteName="Home"
       >
@@ -27,21 +23,39 @@ const Main = () => {
           name="Extrato"
           component={Extract}
           options={{
-            tabBarIcon: ({ tintColor }) => <Icon name="history" size={24} />,
+            tabBarIcon: ({ tintColor, focused }) =>
+              focused ? (
+                <Icon name="history" size={24} color={color.primary[500]} />
+              ) : (
+                <Icon name="history" size={24} color={color.gray[500]} />
+              ),
+            tabBarActiveTintColor: color.primary[500],
           }}
         />
         <Tab.Screen
           name="Home"
           component={Home}
           options={{
-            tabBarIcon: ({ tintColor }) => <Icon name="home" size={24} />,
+            tabBarIcon: ({ tintColor, focused }) =>
+              focused ? (
+                <Icon name="home" size={24} color={color.primary[500]} />
+              ) : (
+                <Icon name="home" size={24} color={color.gray[500]} />
+              ),
+            tabBarActiveTintColor: color.primary[500],
           }}
         />
         <Tab.Screen
           name="Cofrinho"
           component={PiggyBank}
           options={{
-            tabBarIcon: ({ tintColor }) => <Icon name="piggy-bank" size={24} />,
+            tabBarIcon: ({ tintColor, focused }) =>
+              focused ? (
+                <Icon name="piggy-bank" size={24} color={color.primary[500]} />
+              ) : (
+                <Icon name="piggy-bank" size={24} color={color.gray[500]} />
+              ),
+            tabBarActiveTintColor: color.primary[500],
           }}
         />
       </Tab.Navigator>
