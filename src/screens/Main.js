@@ -20,14 +20,18 @@ const Main = () => {
         initialRouteName="Home"
       >
         <Tab.Screen
-          name="Extrato"
+          name="ganhos/despesas"
           component={Extract}
           options={{
-            tabBarIcon: ({ tintColor, focused }) =>
+            tabBarIcon: ({ focused }) =>
               focused ? (
-                <Icon name="history" size={24} color={color.primary[500]} />
+                <Icon
+                  name="swap-vertical"
+                  size={24}
+                  color={color.primary[500]}
+                />
               ) : (
-                <Icon name="history" size={24} color={color.gray[500]} />
+                <Icon name="swap-vertical" size={24} color={color.gray[500]} />
               ),
             tabBarActiveTintColor: color.primary[500],
           }}
