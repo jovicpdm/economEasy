@@ -25,3 +25,12 @@ export const color = {
     800: "#800000",
   },
 };
+
+export const backgroundHeader = {
+  statusBarColor: color.primary[500],
+  headerTintColor: color.primary[100],
+  headerLeft: null,
+  headerStyle: {
+    backgroundColor: color.primary[500],
+  }
+};

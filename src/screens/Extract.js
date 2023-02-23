@@ -9,8 +9,6 @@ import InformationCard from "../components/informationCard";
 import SubHeading from "../components/subheading";
 import Body2 from "../components/body2";
 import ButtonText from "../components/buttonText";
-import Row from "../components/row";
-import ButtonTextIcon from "../components/buttonTextIcon";
 
 const Extract = ({ navigation }) => {
   const earnings = [
@@ -41,19 +39,6 @@ const Extract = ({ navigation }) => {
 
   return (
     <Container>
-      <Row justifyContent="space-between">
-        <ButtonTextIcon
-          icon="arrow-up-thin"
-          onPress={() => {
-            navigation.navigate("addEarning");
-          }}
-        >
-          adicionar ganho
-        </ButtonTextIcon>
-        <ButtonTextIcon icon="arrow-down-thin">
-          adicionar despesa
-        </ButtonTextIcon>
-      </Row>
       <Spacing height={24} />
       <Caption color={color.gray[500]}>ganhos</Caption>
       <Spacing height={16} />

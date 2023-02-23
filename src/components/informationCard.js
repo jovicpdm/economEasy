@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-import { color } from "./../styles/palette";
+import { color } from "../styles/palette";
 
 const InformationCard = (props) => {
   return <View style={styles.container}>{props.children}</View>;
