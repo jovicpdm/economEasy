@@ -15,7 +15,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="main"
+        initialRouteName="addEarning"
         screenOptions={{
           statusBarStyle: "light",
         }}

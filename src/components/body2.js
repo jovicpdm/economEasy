@@ -3,7 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 
 const Body2 = (props) => {
   return (
-    <Text style={[styles.text, { color: props.color || "#070707" }]}>
+    <Text style={[styles.text, { color: props.color || "#070707", textAlign: props.textAlign || "center", }]}>
       {props.children}
     </Text>
   );
@@ -11,8 +11,7 @@ const Body2 = (props) => {
 
 const styles = StyleSheet.create({
   text: {
-    textAlign: "center",
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "500",
   },
 });

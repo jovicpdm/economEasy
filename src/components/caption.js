@@ -14,7 +14,7 @@ export default Caption;
 
 const styles = StyleSheet.create({
   text: {
-    fontWeight: "400",
+    fontWeight: "300",
     fontSize: 12,
     letterSpacing: 0.32,
   },
