@@ -2,12 +2,13 @@ import React from "react";
 import { TouchableOpacity, StyleSheet, Text } from "react-native";
 import { color } from "../styles/palette";
 import TextButton from "./textButton";
+import { Button } from "react-native-paper";
 
 const PrimaryButton = (props) => {
   return (
-    <TouchableOpacity onPress={props.onPress} style={styles.button}>
+    <Button buttonColor={color.primary[500]} style={styles.button} >
       <TextButton>{props.children}</TextButton>
-    </TouchableOpacity>
+    </Button>
   );
 };
 
@@ -16,8 +17,8 @@ export default PrimaryButton;
 const styles = StyleSheet.create({
   button: {
     backgroundColor: color.primary[500],
-    paddingVertical: 12,
-    width: "100%",
-    borderRadius: 16,
+    paddingVertical: 4,
+    // width: "100%",
+    // borderRadius: 16,
   },
 });

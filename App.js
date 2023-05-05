@@ -8,6 +8,7 @@ import Welcome from "./src/screens/Welcome";
 import Main from "./src/screens/Main";
 import AddEarnings from "./src/screens/AddEarnings";
 import Add from "./src/screens/Add";
+import AddExpenses from "./src/screens/AddExpenses";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="addEarning"
+        initialRouteName="main"
         screenOptions={{
           statusBarStyle: "light",
         }}
@@ -41,6 +42,19 @@ export default function App() {
           component={Main}
         />
         <Stack.Screen
+          name="add"
+          options={{
+            title: "adicionar",
+            statusBarColor: color.primary[500],
+            headerTintColor: color.primary[100],
+            headerLeft: null,
+            headerStyle: {
+              backgroundColor: color.primary[500],
+            },
+          }}
+          component={Add}
+        />
+        <Stack.Screen
           name="addEarning"
           options={{
             title: "adicionar ganho",
@@ -54,9 +68,9 @@ export default function App() {
           component={AddEarnings}
         />
         <Stack.Screen
-          name="add"
+          name="addExpense"
           options={{
-            title: "adicionar",
+            title: "adicionar despesa",
             statusBarColor: color.primary[500],
             headerTintColor: color.primary[100],
             headerLeft: null,
@@ -64,7 +78,7 @@ export default function App() {
               backgroundColor: color.primary[500],
             },
           }}
-          component={Add}
+          component={AddExpenses}
         />
       </Stack.Navigator>
     </NavigationContainer>

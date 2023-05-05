@@ -5,9 +5,11 @@ import { color } from "../styles/palette";
 const CustomTextInput = (props) => {
   return (
     <TextInput
-    style={styles.input}
-    placeholder={props.placeholder}
-    keyboardType={props.keyboardType || "default"}
+      style={styles.input}
+      value={props.value}
+      placeholder={props.placeholder}
+      keyboardType={props.keyboardType || "default"}
+      onChangeText={props.onChangeText}
     />
   );
 };

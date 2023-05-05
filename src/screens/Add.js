@@ -15,6 +15,9 @@ const Add = ({ navigation }) => {
       <MenuItem
         title="despesa"
         description="adicione o dinheiro que você gastou/gastará"
+        onPress={() => {
+          navigation.navigate("addExpense");
+        }}
       />
     </View>
   );

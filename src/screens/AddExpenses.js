@@ -8,17 +8,16 @@ import Spacing from "../components/spacing";
 import CustomNumericInput from "../components/customNumericInput";
 import Row from "../components/row";
 import PrimaryButton from "../components/primaryButton";
-import { insertEarning } from "../database/earning";
-import { Snackbar } from "react-native-paper";
+import { insertExpense } from "../database/expenses";
+import { Checkbox } from "react-native-paper";
 
-const AddEarnings = ({ navigation }) => {
+const AddExpenses = ({ navigation }) => {
   const [month, setMonth] = useState(0);
   const [year, setYear] = useState(0);
+  const [installment, setInstallment] = useState(1);
+  const [prorated, setProrated] = useState(false);
   const [title, setTitle] = useState("");
-  const [value, setValue] = useState("");
-  const [visible, setVisible] = useState(false);
-
-  const onDismissSnackBar = () => setVisible(false);
+  const [value, setValue] = useState(0.0);
 
   return (
     <Container flex={1}>
@@ -29,14 +28,6 @@ const AddEarnings = ({ navigation }) => {
             placeholder="digite o título"
             value={title}
             onChangeText={setTitle}
-          />
-          <Spacing height={16} />
-          <Caption>valor</Caption>
-          <CustomTextInput
-            placeholder="digite o valor"
-            value={value}
-            keyboardType="numbers-and-punctuation"
-            onChangeText={setValue}
           />
           <Spacing height={16} />
           <Row>
@@ -57,31 +48,27 @@ const AddEarnings = ({ navigation }) => {
               }}
             />
           </Row>
+          <Checkbox />
+          <Spacing height={16}/>
+          <Caption>valor</Caption>
+          <CustomTextInput
+            placeholder="digite o valor"
+            value={value}
+            onChangeText={setValue}
+          />
+          <Spacing height={16} />
         </View>
         <PrimaryButton
           onPress={() => {
-            // setVisible(true);
-            insertEarning(title, value, month, year);
+            // insertExpense(title, value, month, year);
             navigation.pop();
           }}
         >
           concluir
         </PrimaryButton>
       </View>
-      <Snackbar
-        visible={visible}
-        onDismiss={onDismissSnackBar}
-        action={{
-          label: "Undo",
-          onPress: () => {
-            // Do something
-          },
-        }}
-      >
-        Hey there! I'm a Snackbar.
-      </Snackbar>
     </Container>
   );
 };
 
-export default AddEarnings;
+export default AddExpenses;
