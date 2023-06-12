@@ -24,7 +24,7 @@ const Main = ({ navigation }) => {
                 backgroundColor={color.primary[500]}
                 size={24}
                 onPress={() => {
-                  navigation.navigate("add")
+                  navigation.navigate("add");
                 }}
               />
             ),

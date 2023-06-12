@@ -10,6 +10,8 @@ import Row from "../components/row";
 import { color } from "../styles/palette";
 import Body2 from "../components/body2";
 import Body1 from "../components/body1";
+import { Button, Portal } from "react-native-paper";
+import ButtonText from "../components/buttonText";
 
 const Home = () => {
   const installments = [
@@ -59,6 +61,10 @@ const Home = () => {
 
   return (
     <Container>
+      <Row justifyContent={"flex-end"}>
+        <ButtonText>mês/ano</ButtonText>
+      </Row>
+      <Spacing height={16} />
       <InformationCard>
         <Caption>saldo previsto</Caption>
         <Spacing height={8} />
@@ -105,7 +111,7 @@ const Home = () => {
               <Row>
                 <View style={{ alignItems: "center" }}>
                   <Caption color={color.gray[500]}>guardado</Caption>
-                  <Body1 color={color.primary[700]} >{item.saved}</Body1>
+                  <Body1 color={color.primary[700]}>{item.saved}</Body1>
                 </View>
                 <Spacing width={32} />
                 <View style={{ alignItems: "center" }}>

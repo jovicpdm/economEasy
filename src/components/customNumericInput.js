@@ -12,7 +12,7 @@ const CustomNumericInput = (props) => {
       <NumericInput
         onChange={props.onChange}
         rounded={true}
-        totalWidth={100}
+        totalWidth={150}
         totalHeight={40}
         separatorWidth={0}
         minValue={props.minValue}

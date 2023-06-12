@@ -6,7 +6,11 @@ import { Button } from "react-native-paper";
 
 const PrimaryButton = (props) => {
   return (
-    <Button buttonColor={color.primary[500]} style={styles.button} >
+    <Button
+      buttonColor={color.primary[500]}
+      style={styles.button}
+      onPress={props.onPress}
+    >
       <TextButton>{props.children}</TextButton>
     </Button>
   );
@@ -18,7 +22,5 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: color.primary[500],
     paddingVertical: 4,
-    // width: "100%",
-    // borderRadius: 16,
   },
 });
