@@ -5,11 +5,7 @@ import { color } from "../styles/palette";
 
 const ButtonText = (props) => {
   return (
-    <TouchableOpacity
-      onPress={() => {
-        props.onPress;
-      }}
-    >
+    <TouchableOpacity onPress={props.onPress}>
       <Body2 color={color.primary[500]}>{props.children}</Body2>
     </TouchableOpacity>
   );

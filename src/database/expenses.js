@@ -19,11 +19,10 @@ export const insertExpense = (
   month,
   year
 ) => {
-  console.log("teste");
   createExpense();
   db.transaction((tx) => {
     tx.executeSql(
-      "INSERT INTO expense(title, value, numberInstallments, installmentNumber, month, year) VALUES (?, ?, ?, ?, ?)",
+      "INSERT INTO expense(title, value, numberInstallments, installmentNumber, month, year) VALUES (?, ?, ?, ?, ?, ?)",
       [title, value, numberInstallments, installmentNumber, month, year],
       (tx, results) => {
         console.log("Inserido com sucesso");
@@ -31,6 +30,38 @@ export const insertExpense = (
       },
       (error) => {
         console.log("Erro ao inserir:", error);
+      }
+    );
+  });
+};
+
+export const getExpenses = () => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "SELECT * FROM expense",
+      [],
+      (_, { rows }) => {
+        const result = rows._array;
+        console.log(result);
+      },
+      (_, error) => {
+        console.error(error);
+      }
+    );
+  });
+};
+
+export const getFilterExpense = (month, year) => {
+  db.transaction((tx) => {
+    tx.executeSql(
+      "SELECT * FROM expense WHERE month = ? AND year = ?",
+      [month, year],
+      (_, { rows }) => {
+        const result = rows._array;
+        console.log(result);
+      },
+      (_, error) => {
+        console.error(error);
       }
     );
   });

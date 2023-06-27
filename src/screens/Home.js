@@ -1,5 +1,5 @@
-import { View, Text, FlatList } from "react-native";
-import React from "react";
+import { View, Text, FlatList, Modal, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import Container from "../components/container";
 import InformationCard from "../components/informationCard";
 import Caption from "../components/caption";
@@ -10,10 +10,16 @@ import Row from "../components/row";
 import { color } from "../styles/palette";
 import Body2 from "../components/body2";
 import Body1 from "../components/body1";
-import { Button, Portal } from "react-native-paper";
 import ButtonText from "../components/buttonText";
+import CenteredModal from "../components/centeredModal";
+import { getExpenses, getFilterExpense } from "../database/expenses";
 
 const Home = () => {
+  const [visible, setVisible] = useState(false);
+
+  getFilterExpense(6, 2023);
+  getExpenses()
+
   const installments = [
     {
       id: 1,
@@ -61,10 +67,25 @@ const Home = () => {
 
   return (
     <Container>
-      <Row justifyContent={"flex-end"}>
-        <ButtonText>mês/ano</ButtonText>
+      <Row justifyContent={"space-between"}>
+        <Caption>filtrar período</Caption>
+        <ButtonText
+          onPress={() => {
+            setVisible(true);
+            console.log(visible);
+          }}
+        >
+          mês/ano
+        </ButtonText>
       </Row>
       <Spacing height={16} />
+      <CenteredModal
+        visible={visible}
+        requestClose={() => {
+          setVisible(false);
+        }}
+        onClose={() => setVisible(!visible)}
+      />
       <InformationCard>
         <Caption>saldo previsto</Caption>
         <Spacing height={8} />

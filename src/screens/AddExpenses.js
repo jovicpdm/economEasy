@@ -33,12 +33,13 @@ const AddExpenses = ({ navigation }) => {
             onChangeText={setTitle}
           />
           <Spacing height={16} />
-          <Row justifyContent={"space-between"}>
+          <Row>
             <CustomNumericInput
               title="mês"
               minValue={0}
               maxValue={12}
               onChange={(val) => {
+                console.log(val);
                 setMonth(val);
               }}
             />

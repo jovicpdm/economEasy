@@ -5,23 +5,31 @@ import { color } from "../styles/palette";
 
 import Caption from "./caption";
 
+import CustomTextInput from "./customTextInput";
+import { StyleSheet } from "react-native";
+import Spacing from "./spacing";
+
 const CustomNumericInput = (props) => {
   return (
-    <View style={{ alignItems: "center" }}>
+    <View style={styles.container}>
       <Caption color={color.primary[500]}>{props.title}</Caption>
-      <NumericInput
-        onChange={props.onChange}
+      <Spacing width={8}  />
+      <CustomTextInput
+        onChangeText={props.onChange}
         rounded={true}
-        totalWidth={150}
-        totalHeight={40}
         separatorWidth={0}
-        minValue={props.minValue}
-        rightButtonBackgroundColor={color.primary[500]}
-        leftButtonBackgroundColor={color.primary[500]}
-        maxValue={props.maxValue}
       />
     </View>
   );
 };
 
 export default CustomNumericInput;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    
+  }
+})
